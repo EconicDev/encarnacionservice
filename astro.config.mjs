@@ -3,7 +3,7 @@ import react from "@astrojs/react";
 
 export default defineConfig({
   integrations: [react()],
-  site: "https://econicdev.github.io/",
+  site: "https://encarnacionservice.com",
   base: "/",
   i18n: {
     defaultLocale: "es",

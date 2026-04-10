@@ -1,9 +1,15 @@
 import { defineConfig } from "astro/config";
-import astroI18next from "astro-i18next";
 import react from "@astrojs/react";
 
 export default defineConfig({
-  integrations: [astroI18next(), react()],
+  integrations: [react()],
   site: "https://econicdev.github.io/",
-  base: "/"
+  base: "/",
+  i18n: {
+    defaultLocale: "es",
+    locales: ["es", "en"],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
 });

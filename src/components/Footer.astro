@@ -1,6 +1,7 @@
 ---
+import "../i18n/config";
 import i18next, { t, changeLanguage, setDefaultNamespace } from "i18next";
-import { localizePath } from "astro-i18next";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 changeLanguage(i18next.language);
 
@@ -13,7 +14,7 @@ const currentYear = new Date().getFullYear();
     <nav class="-mx-5 -my-2 flex flex-wrap justify-center" aria-label="Footer">
       <div class="px-5 py-2">
         <a
-          href={localizePath("/")}
+          href={getRelativeLocaleUrl(i18next.language, "/")}
           class="text-base text-gray-500 hover:text-gray-900"
           >
             {t("nav.home")}
@@ -22,7 +23,7 @@ const currentYear = new Date().getFullYear();
 
       <div class="px-5 py-2">
         <a
-          href={localizePath("/about")}
+          href={getRelativeLocaleUrl(i18next.language, "/about")}
           class="text-base text-gray-500 hover:text-gray-900"
         >
           {t("nav.about-us")}
@@ -31,7 +32,7 @@ const currentYear = new Date().getFullYear();
 
       <div class="px-5 py-2">
         <a
-          href={localizePath("/services")}
+          href={getRelativeLocaleUrl(i18next.language, "/services")}
           class="text-base text-gray-500 hover:text-gray-900"
         >
           {t("nav.services")}
@@ -40,7 +41,7 @@ const currentYear = new Date().getFullYear();
 
       <div class="px-5 py-2">
         <a
-          href={localizePath("contact")}
+          href={getRelativeLocaleUrl(i18next.language, "/contact")}
           class="text-base text-gray-500 hover:text-gray-900"
         >
           {t("nav.contact")}

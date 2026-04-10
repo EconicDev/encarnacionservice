@@ -1,0 +1,16 @@
+---
+import { getAbsoluteLocaleUrl } from "astro:i18n";
+
+const pathname = Astro.url.pathname;
+const barePath = pathname.replace(/^\/en(\/|$)/, "/");
+
+const links = [
+  { hreflang: "es", href: getAbsoluteLocaleUrl("es", barePath) },
+  { hreflang: "en", href: getAbsoluteLocaleUrl("en", barePath) },
+  { hreflang: "x-default", href: getAbsoluteLocaleUrl("es", barePath) },
+];
+---
+
+{links.map((link) => (
+  <link rel="alternate" hreflang={link.hreflang} href={link.href} />
+))}

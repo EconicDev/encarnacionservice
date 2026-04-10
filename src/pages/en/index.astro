@@ -1,6 +1,7 @@
 ---
+import "../../i18n/config";
 import i18next, { t, changeLanguage, setDefaultNamespace } from "i18next";
-import { HeadHrefLangs } from "astro-i18next/components";
+import HeadHrefLangs from "../../components/HeadHrefLangs.astro";
 import MainHead from "../../components/MainHead.astro";
 import PageBanner from "../../components/PageBanner.astro";
 import Nav from "../../components/Nav.jsx";
@@ -63,11 +64,9 @@ const navTranslations = getNavTranslations(t);
 				subtext="Encarnación Service"
 				image="/images/home_banner.jpg"
 				imageCoverClasses="object-center brightness-75"
-				format="jpg"
 				alt="Fully loaded container being pushed by two tugboats to dock"
 				titleClasses="block text-white invisible"
 				logo="/logo/Encarnacion_Service_logo_png_fc.png"
-				logoFormat="png"
 			/>
 			<main>
 				<div class="bg-gray-50 pt-12 sm:pt-16">

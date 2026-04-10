@@ -1,5 +1,23 @@
 ---
-import { LanguageSelector } from "astro-i18next/components";
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+const currentLocale = Astro.currentLocale ?? "es";
+const pathname = Astro.url.pathname;
+const barePath = pathname.replace(/^\/en(\/|$)/, "/");
+
+const localeOptions = [
+  { code: "es", label: "Español", href: getRelativeLocaleUrl("es", barePath) },
+  { code: "en", label: "English", href: getRelativeLocaleUrl("en", barePath) },
+];
 ---
 
-<LanguageSelector class="rounded-lg" />
+<select
+  class="rounded-lg"
+  onchange="window.location.href = this.value"
+>
+  {localeOptions.map((opt) => (
+    <option value={opt.href} selected={opt.code === currentLocale}>
+      {opt.label}
+    </option>
+  ))}
+</select>

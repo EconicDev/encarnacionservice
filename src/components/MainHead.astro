@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
 const {
   title = "Encarnación Service SRL",
   description = "Encarnación Service SRL Santo Domingo, República Dominicana",
@@ -15,6 +16,7 @@ const {
 <meta name="generator" content={Astro.generator} />
 <title>{title}</title>
 
+<link rel="icon" href="/favicon.ico" sizes="32x32" />
 <link
   rel="icon"
   type="image/svg+xml"
@@ -25,7 +27,7 @@ const {
 <link
   rel="icon"
   type="image/svg+xml"
-  href="/logo/encarnacion_service_Logo_svg_white_01.svg"
+  href="/logo/Encarnacion_Service_Logo_svg_white_01.svg"
   media="(prefers-color-scheme: dark)"
 />
 
@@ -35,3 +37,4 @@ const {
   href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700;900&display=swap"
   rel="stylesheet"
 />
+<ClientRouter />

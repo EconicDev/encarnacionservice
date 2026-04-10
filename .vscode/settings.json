@@ -33,5 +33,6 @@
   },
   "[tsx]": {
     "editor.defaultFormatter": "astro-build.astro-vscode"
-  }
+  },
+  "workbench.colorTheme": "Default Dark+"
 }

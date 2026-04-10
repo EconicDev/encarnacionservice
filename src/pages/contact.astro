@@ -1,6 +1,7 @@
 ---
+import "../i18n/config";
 import i18next, { t, changeLanguage, setDefaultNamespace } from "i18next";
-import { HeadHrefLangs } from "astro-i18next/components";
+import HeadHrefLangs from "../components/HeadHrefLangs.astro";
 import MainHead from "../components/MainHead.astro";
 import Nav from "../components/Nav.jsx";
 import Footer from "../components/Footer.astro";
@@ -45,7 +46,6 @@ const contactFormTraslations = {
         <PageBanner
             alt="The head of the status of Fray Anton de Montesinos in the foreground appears to be calling a ship off in the background, south of port Santo Domingo during a sunset."
             title={t("title")}
-            format="jpeg"
             image="/images/staff_warehouse.jpg"
             imageCoverClasses="object-top"
             alt="staff sharing a tablet"

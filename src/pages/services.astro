@@ -1,7 +1,6 @@
 ---
 import i18next, { t, changeLanguage, setDefaultNamespace } from "i18next";
 import { HeadHrefLangs } from "astro-i18next/components";
-import { Image } from "@astrojs/image/components";
 import MainHead from "../components/MainHead.astro";
 import PageBanner from "../components/PageBanner.astro";
 import DetailedCard from "../components/DetailedCard.astro";
@@ -135,7 +134,6 @@ const otherServices = [
             alt="A blue container being moved by an out of frame crane"
             disableBannerBar={true}
             title={t("Servicios")}
-            format="jpeg"
             image="/images/moving_container.jpg"
             titleClasses="block text-indigo-600 invisible"
         />

@@ -1,25 +1,20 @@
 ---
-import { Image } from "@astrojs/image/components";
 interface Props {
     alt: string;
     disableBannerBar?: boolean;
-    format: string;
     title: string;
     image: string;
     imageCoverClasses?: string;
     titleClasses: string;
     subtext?: string;
     logo?: string;
-    logoFormat?: string;
 }
 
 const {
     alt,
     disableBannerBar,
-    format,
     imageCoverClasses,
     logo,
-    logoFormat,
     subtext,
     title,
     titleClasses,
@@ -41,27 +36,23 @@ const showLogo = logo || false;
     <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div class="relative shadow-xl sm:overflow-hidden sm:rounded-b-md">
             <div class="absolute inset-0">
-                <Image
+                <img
                     class={"h-full w-full object-cover " + imageCoverClasses}
                     width={1920}
                     height={1080}
                     src={displayImage}
                     alt={alt}
-                    format={format}
-                    aspectRatio={16 / 9}
                 />
             </div>
             {
                 showLogo ? (
                     <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                        <Image
+                        <img
                             class="shadow-test h-28 md:h-40 lg:h-48 xl:56 w-auto"
                             width={600}
                             height={600}
                             src={showLogo}
                             alt={alt}
-                            format={logoFormat}
-                            aspectRatio={1}
                         />
                     </div>
                 ) : null

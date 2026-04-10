@@ -11,7 +11,16 @@
     "esModuleInterop": true,
     "jsx": "react-jsx",
     "jsxImportSource": "react",
-    "types": ["astro/client"]
+    "types": [
+      "astro/client"
+    ]
   },
-  "extends": "astro/tsconfigs/base"
+  "extends": "astro/tsconfigs/base",
+  "include": [
+    ".astro/types.d.ts",
+    "**/*"
+  ],
+  "exclude": [
+    "dist"
+  ]
 }

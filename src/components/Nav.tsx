@@ -99,6 +99,21 @@ const Nav = ({ location, translations, language, children }: NavProps) => {
                 />
               </a>
             </div>
+
+            {/* Mobile language toggle, centered between logo and hamburger */}
+            <div className="flex sm:hidden absolute left-1/2 -translate-x-1/2">
+              {languageToggle ? children
+              : (
+                <button
+                  onClick={() => setLanguageToggle(!languageToggle)}
+                  className="inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-fulvous-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                >
+                  <span className="sr-only">language</span>
+                  <LanguageIcon className="block h-6 w-6" aria-hidden="true" />
+                </button>
+              )}
+            </div>
+
             <div className="-mr-2 flex sm:hidden">
               <Disclosure.Button
                 onClick={() => setIsOpen(!isOpen)}

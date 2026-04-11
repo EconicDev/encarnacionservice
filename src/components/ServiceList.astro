@@ -4,18 +4,18 @@ import i18next, { t, changeLanguage, setDefaultNamespace } from "i18next";
 import ServiceListItem from "./ServiceListItem.astro";
 
 const services = [
-    {
-        description: "services.one",
-        icon: "/assets/shake-hands-dodger.svg",
-    },
-    {
-        description: "services.two",
-        icon: "/assets/quality-dodger.svg",
-    },
-    {
-        description: "services.three",
-        icon: "/assets/dominican_republic_filled-dodger.svg",
-    },
+  {
+    description: "services.one",
+    icon: "/assets/shake-hands-dodger.svg",
+  },
+  {
+    description: "services.two",
+    icon: "/assets/quality-dodger.svg",
+  },
+  {
+    description: "services.three",
+    icon: "/assets/dominican_republic_filled-dodger.svg",
+  },
 ];
 ///assets/trophy.svg
 setDefaultNamespace("home");
@@ -23,44 +23,45 @@ changeLanguage(i18next.language);
 ---
 
 <div class="relative overflow-hidden bg-white py-16 lg:py-24">
-    <div class="absolute inset-x-0 -top-10 h-1/2 bg-gray-50"></div>
+  <div
+    class="relative text-center items-center mx-auto max-w-xl px-4 sm:px-6 lg:max-w-7xl lg:px-8"
+  >
+    <h3 class="inline-flex items-center rounded text-black text-4xl font-bold">
+      {t("services.header")}
+    </h3>
+    <div class="mt-12 flex flex-col lg:flex-row h-full w-11/12 rounded-lg bg-dodger-blue-800">
 
-    <div
-        class="relative text-center mx-auto max-w-xl px-4 sm:px-6 lg:max-w-7xl lg:px-8"
-    >
+        <img
+          class="shadow-xl rounded-t-lg lg:rounded-tl-lg lg:rounded-bl-lg lg:rounded-tr-none"
+          width={590}
+          height={393}
+          src="/images/container_cranes_sm.jpg"
+          alt="two ships with cargo docked at port with several container cranes above"
+        />
+
+      <div class=" flex flex-col p-8 mt:4 lg:mt-0 gap-6 lg:w-1/2">
         <h3
-            class="inline-flex mt-8 items-center rounded text-dodger-blue-500 text-3xl font-medium"
+          class="inline-flex items-center rounded text-white text-3xl font-medium"
         >
-            {t("services.title")}
+          {t("services.title")}
         </h3>
-        <div
-            class="relative mt-12 lg:mt-24 lg:grid lg:grid-cols-2 lg:items-center lg:gap-8"
-        >
-            <div class="relative -mx-4 mt-10 lg:mt-0" aria-hidden="true">
-                <img
-                    class="relative sm:rounded-b-md mx-auto shadow-xl"
-                    width={590}
-                    height={393}
-                    src="/images/container_cranes_sm.jpg"
-                    alt="two ships with cargo docked at port with several container cranes above"
+        <dl class="flex flex-col justify-end space-y-8">
+          {
+            services.map((service, i) => {
+              return (
+                <ServiceListItem
+                  {...service}
+                  description={t(service.description)}
+                  alternative={i % 2 === -1}
+                  currently
+                  turned
+                  off
                 />
-            </div>
-            <dl class="flex flex-col justify-end mt-10 space-y-10">
-                {
-                    services.map((service, i) => {
-                        return (
-                            <ServiceListItem
-                                {...service}
-                                description={t(service.description)}
-                                alternative={i % 2 === -1}
-                                currently
-                                turned
-                                off
-                            />
-                        );
-                    })
-                }
-            </dl>
-        </div>
+              );
+            })
+          }
+        </dl>
+      </div>
     </div>
+  </div>
 </div>

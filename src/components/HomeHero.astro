@@ -1,0 +1,117 @@
+---
+import "../i18n/config";
+import i18next, { t, setDefaultNamespace } from "i18next";
+import Features from "./Features.astro";
+
+setDefaultNamespace("home");
+---
+
+<section class="relative">
+    <!-- TOP SECTION: ship background image -->
+    <div
+        class="relative bg-cover bg-center bg-[url('/images/home_banner.jpg')] pt-16 pb-32 sm:pt-20 sm:pb-40 lg:pt-24 lg:pb-48"
+    >
+        <div class="absolute inset-0 bg-slate-blue-950/50"></div>
+        <div class="relative mx-auto max-w-7xl px-4 text-center">
+            <img
+                src="/logo/Encarnacion_Service_logo_png_fc.png"
+                alt="Encarnación Service"
+                class="mx-auto h-20 md:h-28 lg:h-32 w-auto drop-shadow-lg"
+            />
+            <h1
+                class="mt-6 text-5xl lg:text-8xl font-bold tracking-tight text-white drop-shadow-lg"
+            >
+                Encarnación Service
+            </h1>
+            <p
+                class="mt-4 text-xl lg:text-3xl text-white drop-shadow-md max-w-2xl mx-auto"
+            >
+                {t("banner.title")}
+            </p>
+        </div>
+    </div>
+
+    <!-- BOTTOM SECTION: solid navy with stats card pulled up to straddle the seam -->
+    <div class="bg-slate-blue-950">
+        <div class="-mt-20 sm:-mt-16 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+            <dl
+                class="grid grid-cols-1 sm:grid-cols-3 rounded-lg bg-white/10 backdrop-blur-sm border border-white/20 shadow-2xl overflow-hidden"
+            >
+                <div
+                    class="flex flex-col p-6 text-center border-b border-white/20 sm:border-b-0 sm:border-r sm:border-white/20"
+                >
+                    <dt
+                        class="order-2 mt-2 text-sm sm:text-base font-medium leading-6 text-white"
+                    >
+                        {t("banner.experience")}
+                    </dt>
+                    <dd
+                        id="banner-experience"
+                        class="order-1 text-4xl sm:text-5xl font-bold tracking-tight text-fulvous-300"
+                    >
+                        +40
+                    </dd>
+                </div>
+                <div
+                    class="flex flex-col p-6 text-center border-b border-white/20 sm:border-b-0 sm:border-r sm:border-white/20"
+                >
+                    <dt
+                        class="order-2 mt-2 text-sm sm:text-base font-medium leading-6 text-white"
+                    >
+                        {t("banner.procedures")}
+                    </dt>
+                    <dd
+                        id="banner-procedures"
+                        class="order-1 text-4xl sm:text-5xl font-bold tracking-tight text-fulvous-300"
+                    >
+                        +2,180
+                    </dd>
+                </div>
+                <div class="flex flex-col p-6 text-center">
+                    <dt
+                        class="order-2 mt-2 text-sm sm:text-base font-medium leading-6 text-white"
+                    >
+                        {t("banner.customers")}
+                    </dt>
+                    <dd
+                        id="banner-customers"
+                        class="order-1 text-4xl sm:text-5xl font-bold tracking-tight text-fulvous-300"
+                    >
+                        +500
+                    </dd>
+                </div>
+            </dl>
+        </div>
+
+        <div class="mt-16">
+            <Features />
+        </div>
+    </div>
+</section>
+
+<script>
+    const experience = document.getElementById("banner-experience");
+    const procedures = document.getElementById("banner-procedures");
+    const customers = document.getElementById("banner-customers");
+    for (
+        let i = 0, j = 0, k = 0;
+        i <= 40 || j <= 2180 || k <= 500;
+        i++, j++, k++
+    ) {
+        if (i <= 40) {
+            setTimeout(() => {
+                if (experience) experience.innerHTML = "+" + i;
+            }, 50 * i);
+        }
+        if (j <= 2180) {
+            setTimeout(() => {
+                if (procedures) procedures.innerHTML = "+" + j;
+            }, 1.8 * j);
+        }
+        if (k <= 500) {
+            setTimeout(() => {
+                if (customers) customers.innerHTML = "+" + k;
+            }, 8 * k);
+        }
+    }
+</script>

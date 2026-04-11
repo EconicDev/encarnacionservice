@@ -5,6 +5,7 @@ module.exports = {
 	content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
 	theme: {
 		colors: {
+			transparent: "transparent",
 			black: "#000000",
 			white: "#FFFFFF",
 			/* primary */
@@ -27,6 +28,20 @@ module.exports = {
 			"dodger-blue-700": "#125898",
 			"dodger-blue-800": "#105086",
 			"dodger-blue-900": "#0E4774",
+
+			/* alt-secondary */
+			"slate-blue-50": "#f0f3fc",
+			"slate-blue-100": "#e2e8f9",
+			"slate-blue-200": "#c0cff3",
+			"slate-blue-300": "#a1b9ee",
+			"slate-blue-400": "#7ca0e7",
+			"slate-blue-500": "#568be1",
+			"slate-blue-600": "#4574c0",
+			"slate-blue-700": "#3861a0",
+			"slate-blue-800": "#2b4b7f",
+			"slate-blue-900": "#1f3962",
+			"slate-blue-950": "#0f1f3a",
+
 			/* tertiary */
 			"black-coral-100": "#546E7A",
 			"black-coral-200": "#4D6672",

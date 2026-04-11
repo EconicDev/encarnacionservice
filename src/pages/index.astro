@@ -3,10 +3,9 @@ import "../i18n/config";
 import i18next, { t, changeLanguage, setDefaultNamespace } from "i18next";
 import HeadHrefLangs from "../components/HeadHrefLangs.astro";
 import MainHead from "../components/MainHead.astro";
-import PageBanner from "../components/PageBanner.astro";
+import HomeHero from "../components/HomeHero.astro";
 import Nav from "../components/Nav.jsx";
 import Footer from "../components/Footer.astro";
-import Features from "../components/Features.astro";
 import ServiceList from "../components/ServiceList.astro";
 import LanguageSelectorWrapper from "../components/LanguageSelectorWrapper.astro";
 import { getNavTranslations } from "../utils/index";
@@ -26,29 +25,6 @@ const navTranslations = getNavTranslations(t);
 		/>
 		<HeadHrefLangs />
 	</head>
-	<script>
-		const experience = document.getElementById("banner-experience");
-		const procedures = document.getElementById("banner-procedures");
-		const customers = document.getElementById("banner-customers");
-		// for loop that gradually increases the number of procedures from 0 to 2,180
-		for (let i = 0, j = 0, k = 0; (i <= 37 || j <= 2180 || k <= 500); i++, j++, k++) {
-			if (i <= 37) {
-				setTimeout(() => {
-					experience.innerHTML = "+" + i;
-				}, 50 * i);
-			}
-			if (j <= 2180 ) {
-				setTimeout(() => {
-					procedures.innerHTML = "+" + j;
-				}, 1.8 * j);
-			}
-			if (k <= 500) {
-				setTimeout(() => {
-					customers.innerHTML = "+" + k;
-				}, 8 * k);
-			}
-		}
-	</script>
 	<body>
 		<Nav
 			location="home"
@@ -58,91 +34,8 @@ const navTranslations = getNavTranslations(t);
 		>
 			<LanguageSelectorWrapper />
 		</Nav>
-		<div class="bg-white">
-			<PageBanner
-				title="Encarnación Service"
-				subtext="Encarnación Service"
-				image="/images/home_banner.jpg"
-				imageCoverClasses="object-center brightness-75"
-				alt="Fully loaded container being pushed by two tugboats to dock"
-				titleClasses="block text-white invisible"
-				logo="/logo/Encarnacion_Service_logo_png_fc.png"
-			/>
-			<main>
-				<div class="bg-gray-50 pt-12 sm:pt-16">
-					<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-						<div class="mx-auto max-w-4xl text-center">
-							<h2
-								class="text-2xl sm:text-3xl font-semibold tracking-tight text-dodger-blue-600 lg:text-4xl"
-							>
-								{t("banner.title")}
-							</h2>
-						</div>
-					</div>
-					<div class="mt-10 bg-white pb-12 sm:pb-16">
-						<div class="relative">
-							<div class="absolute inset-0 h-1/2 bg-gray-50">
-							</div>
-							<div
-								class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
-							>
-								<div class="mx-auto max-w-4xl">
-									<dl
-										class="rounded-lg bg-white shadow-lg sm:grid sm:grid-cols-3"
-									>
-										<div
-											class="flex flex-col border-b border-gray-100 p-6 text-center sm:border-0 sm:border-r"
-										>
-											<dt
-												class="order-2 mt-2 text-lg font-medium leading-6 text-gray-500"
-											>
-												{t("banner.experience")}
-											</dt>
-											<dd
-												id="banner-experience" class="order-1 text-5xl font-bold tracking-tight text-fulvous-100"
-											>
-												+37
-											</dd>
-										</div>
-										<div
-											class="flex flex-col border-t border-b border-gray-100 p-6 text-center sm:border-0 sm:border-l sm:border-r"
-										>
-											<dt
-												class="order-2 mt-2 text-lg font-medium leading-6 text-gray-500"
-											>
-												{t("banner.procedures")}
-											</dt>
-											<dd
-												id="banner-procedures" class="order-1 text-5xl font-bold tracking-tight text-fulvous-100"
-											>
-												+2,180
-											</dd>
-										</div>
-										<div
-											class="flex flex-col border-t border-gray-100 p-6 text-center sm:border-0 sm:border-l"
-										>
-											<dt
-												class="order-2 mt-2 text-lg font-medium leading-6 text-gray-500"
-											>
-												{t("banner.customers")}
-											</dt>
-											<dd
-												id="banner-customers" class="order-1 text-5xl font-bold tracking-tight text-fulvous-100"
-											>
-												+500
-											</dd>
-										</div>
-									</dl>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<Features />
-				<ServiceList />
-			</main>
-		</div>
+		<HomeHero />
+		<ServiceList />
 		<Footer />
 	</body>
 </html>

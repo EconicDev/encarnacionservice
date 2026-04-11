@@ -7,95 +7,117 @@ import type { NavProps } from '../types';
 const Nav = ({ location, translations, language, children }: NavProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const [languageToggle, setLanguageToggle] = useState(false);
-  
+
   const navSelectedStyle =
-    "rounded-sm bg-fulvous-600 px-3 py-2 text-sm font-medium text-white";
+    "px-3 py-2 text-sm font-medium text-white border-b-2 border-fulvous-300 transition-colors duration-300 ease-in-out";
   const navMobileSelectedStyle =
     "block rounded-sm bg-fulvous-600 px-3 py-2 text-base font-medium text-white";
   const navDefaultStyle =
-    "rounded-sm px-3 py-2 text-sm font-medium text-gray-800 hover:bg-fulvous-200 hover:text-white transition duration-300 ease-in-out";
+    "px-3 py-2 text-sm font-medium text-white border-b-2 border-transparent hover:border-fulvous-300 transition-colors duration-300 ease-in-out";
   const navMobileDefaultStyle =
-    "block rounded-sm px-3 py-2 text-base font-medium text-gray-800 hover:fulvous-200 hover:text-white";
+    "block rounded-sm px-3 py-2 text-base font-medium text-white hover:bg-fulvous-600 hover:text-white";
   const languagePrefix = language === 'es' ? '' : "/" + language;
 
   return (
-    <Disclosure as="nav" className="bg-white">
+    <Disclosure as="nav" className="bg-slate-blue-950">
       <>
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between">
-            <div className="flex items-center">
-              <div className="flex-shrink-0">
-              <a href={languagePrefix + "/"}>
-                <img
-                  className="block h-10 w-auto lg:hidden"
-                  src="/logo/Encarnacion_Service_logo_svg_fc.svg"
-                  alt="Encarnación Service SRL"
-                />
-                <img
-                  className="hidden h-12 w-auto lg:block"
-                  src="/logo/Encarnacion_Service_logo_svg_fc.svg"
-                  alt="Encarnación Service SRL"
-                />
+          <div className="relative flex h-16 items-center justify-between">
+            {/* Left nav links (desktop) */}
+            <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-start">
+              <div className="flex space-x-4">
+                <a
+                  href={languagePrefix + "/"}
+                  className={
+                    location === "home" ? navSelectedStyle : navDefaultStyle
+                  }
+                >
+                  {translations.home}
+                </a>
+                <a
+                  href={languagePrefix + "/about/"}
+                  className={
+                    location === "about" ? navSelectedStyle : navDefaultStyle
+                  }
+                >
+                  {translations.about}
                 </a>
               </div>
-              <div className="hidden sm:ml-6 sm:block">
-                <div className="flex space-x-4">
-                  <a
-                    href={languagePrefix + "/"}
-                    className={
-                      location === "home"
-                        ? navSelectedStyle
-                        : navDefaultStyle
-                    }
+            </div>
+
+            {/* Centered logo (desktop) */}
+            <div className="hidden sm:flex sm:flex-shrink-0 sm:items-center sm:justify-center sm:absolute sm:left-1/2 sm:-translate-x-1/2">
+              <a href={languagePrefix + "/"}>
+                <img
+                  className="h-10 w-auto"
+                  src="/logo/Encarnacion_Service_Logo_svg_white_01.svg"
+                  alt="Encarnación Service SRL"
+                />
+              </a>
+              <span className="px-1 text-white leading-tight font-semibold">Encarnación<br/>Service</span>
+            </div>
+
+            {/* Right nav links (desktop) */}
+            <div className="hidden sm:flex sm:flex-1 sm:items-center sm:justify-end">
+              <div className="flex space-x-4">
+                <a
+                  href={languagePrefix + "/services/"}
+                  className={
+                    location === "services" ? navSelectedStyle : navDefaultStyle
+                  }
+                >
+                  {translations.services}
+                </a>
+                <a
+                  href={languagePrefix + "/contact/"}
+                  className={
+                    location === "contact" ? navSelectedStyle : navDefaultStyle
+                  }
+                >
+                  {translations.contact}
+                </a>
+                {languageToggle ? children
+                : (
+                  <button
+                    onClick={() => setLanguageToggle(!languageToggle)}
+                    className="inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-fulvous-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                   >
-                    {translations.home}
-                  </a>
-                  <a
-                    href={languagePrefix + "/about/"}
-                    className={
-                      location === "about" ? navSelectedStyle : navDefaultStyle
-                    }
-                  >
-                    {translations.about}
-                  </a>
-                  <a
-                    href={languagePrefix + "/services/"}
-                    className={
-                      location === "services"
-                        ? navSelectedStyle
-                        : navDefaultStyle
-                    }
-                  >
-                    {translations.services}
-                  </a>
-                  <a
-                    href={languagePrefix + "/contact/"}
-                    className={
-                      location === "contact"
-                        ? navSelectedStyle
-                        : navDefaultStyle
-                    }
-                  >
-                    {translations.contact}
-                  </a>
-                </div>
+                    <span className="sr-only">language</span>
+                    <LanguageIcon className="block h-6 w-6" aria-hidden="true" />
+                  </button>
+                )}
               </div>
             </div>
-            {languageToggle ? children 
-            : (
-              <button
-                onClick={() => setLanguageToggle(!languageToggle)}
-                className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-              >
-                <span className="sr-only">language</span>
-                <LanguageIcon className="block h-6 w-6" aria-hidden="true" />
-              </button>
-            )}
+
+            {/* Mobile: logo on left, hamburger on right */}
+            <div className="flex sm:hidden flex-shrink-0">
+              <a href={languagePrefix + "/"}>
+                <img
+                  className="block h-10 w-auto"
+                  src="/logo/Encarnacion_Service_Logo_svg_white_01.svg"
+                  alt="Encarnación Service SRL"
+                />
+              </a>
+            </div>
+
+            {/* Mobile language toggle, centered between logo and hamburger */}
+            <div className="flex sm:hidden absolute left-1/2 -translate-x-1/2">
+              {languageToggle ? children
+              : (
+                <button
+                  onClick={() => setLanguageToggle(!languageToggle)}
+                  className="inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-fulvous-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                >
+                  <span className="sr-only">language</span>
+                  <LanguageIcon className="block h-6 w-6" aria-hidden="true" />
+                </button>
+              )}
+            </div>
+
             <div className="-mr-2 flex sm:hidden">
-              {/* Mobile menu button */}
               <Disclosure.Button
                 onClick={() => setIsOpen(!isOpen)}
-                className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-fulvous-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                className="inline-flex items-center justify-center rounded-md p-2 text-white hover:bg-fulvous-600 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
               >
                 <span className="sr-only">Open main menu</span>
                 {isOpen ? (
@@ -108,7 +130,7 @@ const Nav = ({ location, translations, language, children }: NavProps) => {
           </div>
         </div>
 
-        <Disclosure.Panel className="sm:hidden">
+        <Disclosure.Panel className="sm:hidden bg-slate-blue-950">
           <div className="space-y-1 px-2 pt-2 pb-3">
             <Disclosure.Button
               as="a"

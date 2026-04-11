@@ -9,11 +9,11 @@ const Nav = ({ location, translations, language, children }: NavProps) => {
   const [languageToggle, setLanguageToggle] = useState(false);
 
   const navSelectedStyle =
-    "rounded-sm bg-fulvous-600 px-3 py-2 text-sm font-medium text-white";
+    "px-3 py-2 text-sm font-medium text-white border-b-2 border-fulvous-300 transition-colors duration-300 ease-in-out";
   const navMobileSelectedStyle =
     "block rounded-sm bg-fulvous-600 px-3 py-2 text-base font-medium text-white";
   const navDefaultStyle =
-    "rounded-sm px-3 py-2 text-sm font-medium text-white hover:bg-fulvous-600 hover:text-white transition duration-300 ease-in-out";
+    "px-3 py-2 text-sm font-medium text-white border-b-2 border-transparent hover:border-fulvous-300 transition-colors duration-300 ease-in-out";
   const navMobileDefaultStyle =
     "block rounded-sm px-3 py-2 text-base font-medium text-white hover:bg-fulvous-600 hover:text-white";
   const languagePrefix = language === 'es' ? '' : "/" + language;

@@ -47,14 +47,17 @@ const Nav = ({ location, translations, language, children }: NavProps) => {
 
             {/* Centered logo (desktop) */}
             <div className="hidden sm:flex sm:flex-shrink-0 sm:items-center sm:justify-center sm:absolute sm:left-1/2 sm:-translate-x-1/2">
-              <a href={languagePrefix + "/"}>
+              <a
+                className="hidden sm:flex sm:flex-shrink-0"
+                href={languagePrefix + "/"}>
                 <img
                   className="h-10 w-auto"
                   src="/logo/Encarnacion_Service_Logo_svg_white_01.svg"
                   alt="Encarnación Service SRL"
                 />
+                <span className="px-1 text-white leading-tight font-semibold">Encarnación<br/>Service</span>
               </a>
-              <span className="px-1 text-white leading-tight font-semibold">Encarnación<br/>Service</span>
+              
             </div>
 
             {/* Right nav links (desktop) */}

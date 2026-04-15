@@ -6,15 +6,16 @@ import ServiceListItem from "./ServiceListItem.astro";
 const services = [
   {
     description: "services.one",
-    icon: "/assets/shake-hands-dodger.svg",
+    icon: "/assets/dga_logo.svg",
   },
   {
     description: "services.two",
-    icon: "/assets/quality-dodger.svg",
+    icon: "/assets/oea_logo.svg",
   },
   {
     description: "services.three",
     icon: "/assets/dominican_republic_filled-dodger.svg",
+    blackIcon: true,
   },
 ];
 ///assets/trophy.svg
@@ -24,28 +25,30 @@ changeLanguage(i18next.language);
 
 <div class="relative overflow-hidden bg-white py-16 lg:py-24">
   <div
-    class="relative text-center items-center mx-auto max-w-xl px-4 sm:px-6 lg:max-w-7xl lg:px-8"
+    class="flex flex-col text-center items-center mx-auto max-w-xl px-4 sm:px-6 lg:max-w-7xl lg:px-8"
   >
     <h3 class="inline-flex items-center rounded text-black text-4xl font-bold">
       {t("services.header")}
     </h3>
-    <div class="mt-12 flex flex-col lg:flex-row h-full w-11/12 rounded-lg bg-dodger-blue-800">
+    <!-- <div class="mt-12 flex flex-col lg:flex-row h-full rounded-lg bg-dodger-blue-800"> -->
+     <div class="grid grid-cols-1 lg:grid-cols-3 mt-12 h-full rounded-lg bg-dodger-blue-800">
 
         <img
-          class="shadow-xl rounded-t-lg lg:rounded-tl-lg lg:rounded-bl-lg lg:rounded-tr-none"
+          class="w-full h-full object-cover shadow-xl rounded-t-lg lg:rounded-tl-lg lg:rounded-bl-lg lg:rounded-tr-none"
           width={590}
           height={393}
           src="/images/container_cranes_sm.jpg"
           alt="two ships with cargo docked at port with several container cranes above"
         />
 
-      <div class=" flex flex-col p-8 mt:4 lg:mt-0 gap-6 lg:w-1/2">
+      <!-- <div class=" flex flex-col p-8 mt:4 lg:mt-0 gap-6 lg:w-1/3"> -->
+       <div class="lg:col-span-2 flex flex-col p-6 mt:4 lg:mt-0 gap-8">
         <h3
           class="inline-flex items-center rounded text-white text-3xl font-medium"
         >
           {t("services.title")}
         </h3>
-        <dl class="flex flex-col justify-end space-y-8">
+        <dl class="flex flex-col justify-end space-y-8 pb-4">
           {
             services.map((service, i) => {
               return (

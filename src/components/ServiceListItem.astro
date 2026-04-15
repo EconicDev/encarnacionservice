@@ -1,13 +1,13 @@
 ---
-const { alternative, title, description, icon, href, linkText } = Astro.props;
+const { alternative, title, description, icon, href, linkText, blackIcon } = Astro.props;
 ---
 
 <div class="flex items-start">
     <dt class="flex-shrink-0">
         <div
-            class="flex h-12 w-12 items-center justify-center rounded-md bg-fulvous-300"
+            class="flex h-22 w-28 items-center justify-center rounded-md bg-white"
         >
-            <img class="h-7 w-7 invert brightness-0" src={icon} />
+            <img class={`h-16 w-16${blackIcon ? ' brightness-0' : ''}`} src={icon} />
         </div>
         {
             title && (
